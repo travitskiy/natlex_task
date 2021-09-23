@@ -1,7 +1,6 @@
 package ru.natlex.task.service;
 
 import org.springframework.stereotype.Service;
-import ru.natlex.task.async.LockManager;
 import ru.natlex.task.job.*;
 import ru.natlex.task.model.AsyncJob;
 import ru.natlex.task.repository.AsyncJobsRepository;
@@ -13,24 +12,13 @@ import java.util.concurrent.locks.ReentrantLock;
 @Service
 public class AsyncJobServiceImpl implements AsyncJobService {
     private final AsyncJobsRepository asyncJobsRepository;
-    private final LockManager lockManager;
 
-    public AsyncJobServiceImpl(LockManager lockManager,
-                               AsyncJobsRepository asyncJobsRepository) {
-        this.lockManager = lockManager;
+    public AsyncJobServiceImpl(AsyncJobsRepository asyncJobsRepository) {
         this.asyncJobsRepository = asyncJobsRepository;
     }
 
     private AsyncJob saveAsyncJob(AsyncJob asyncJob) {
-        ReentrantLock lock = lockManager.getLock(AsyncJob.class.getName() + asyncJob.hashCode());
-
-        lock.lock();
-
-        AsyncJob savedAsyncJob = asyncJobsRepository.save(asyncJob);
-
-        lock.unlock();
-
-        return savedAsyncJob;
+        return asyncJobsRepository.save(asyncJob);
     }
 
     @Override

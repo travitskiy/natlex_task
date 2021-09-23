@@ -19,16 +19,7 @@ public class NatlexLockManager implements LockManager {
     public ReentrantLock getLock(String key) {
         String lockKey = StringUtils.isEmpty(key) ? "nullKey" : key;
 
-        ReentrantLock reentrantLock = lockMap.get(lockKey);
-        if (reentrantLock == null) {
-            synchronized (lockMap) {
-                reentrantLock = lockMap.get(lockKey);
-                if (reentrantLock == null) {
-                    reentrantLock = new ReentrantLock();
-                    lockMap.put(lockKey, reentrantLock);
-                }
-            }
-        }
-        return reentrantLock;
+        return lockMap.compute(lockKey,
+                (k, v) -> v == null ? new ReentrantLock() : v);
     }
 }

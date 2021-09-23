@@ -30,15 +30,7 @@ public class SectionServiceImpl implements SectionService {
 
     @Override
     public SectionsExportFile saveExportFile(SectionsExportFile sectionsExportFile) {
-        ReentrantLock lock = lockManager.getLock(SectionsExportFile.class.getName() + sectionsExportFile.hashCode());
-
-        lock.lock();
-
-        SectionsExportFile savedSectionsExportFile = sectionsExportFilesRepository.save(sectionsExportFile);
-
-        lock.unlock();
-
-        return savedSectionsExportFile;
+        return sectionsExportFilesRepository.save(sectionsExportFile);
     }
 
     @Override
@@ -82,15 +74,9 @@ public class SectionServiceImpl implements SectionService {
 
     @Override
     public void deleteSection(Section section) {
-        ReentrantLock lock = lockManager.getLock(Section.class.getName() + section.hashCode());
-
-        lock.lock();
-
         repository.findById(section.getId()).ifPresent(fs -> {
             repository.deleteById(fs.getId());
         });
-
-        lock.unlock();
     }
 
     @Override
