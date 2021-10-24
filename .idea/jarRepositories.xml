@@ -2,29 +2,24 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Maven Central repository" />
-      <option name="url" value="https://repo1.maven.org/maven2" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="libs-release" />
-      <option name="url" value="https://norcas.accessline.com/artifactory/libs-release" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="jboss" />
       <option name="name" value="jboss-eap-6.4.0.GA-maven-repository" />
       <option name="url" value="https://norcas.accessline.com/artifactory/jboss-eap-6.4.0.GA-maven-repository" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="imsecurityproducts" />
-      <option name="name" value="libs-release" />
-      <option name="url" value="https://artifactory.imsecurityproducts.net/artifactory/libs-release" />
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="snapshots" />
       <option name="name" value="libs-snapshot" />
       <option name="url" value="https://norcas.accessline.com/artifactory/libs-snapshot" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss.community" />
@@ -33,6 +28,16 @@
     </remote-repository>
     <remote-repository>
       <option name="id" value="release" />
+      <option name="name" value="libs-release" />
+      <option name="url" value="https://norcas.accessline.com/artifactory/libs-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="imsecurityproducts" />
+      <option name="name" value="libs-release" />
+      <option name="url" value="https://artifactory.imsecurityproducts.net/artifactory/libs-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
       <option name="name" value="libs-release" />
       <option name="url" value="https://norcas.accessline.com/artifactory/libs-release" />
     </remote-repository>
