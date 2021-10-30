@@ -3,6 +3,7 @@ package ru.natlex.task.sections.controller;
 import org.springframework.web.bind.annotation.*;
 import ru.natlex.task.sections.dto.SectionCreateRequest;
 import ru.natlex.task.sections.dto.SectionCreatedResponse;
+import ru.natlex.task.sections.dto.SectionUpdateRequest;
 import ru.natlex.task.sections.dto.SectionsResponse;
 import ru.natlex.task.sections.service.SectionsRestService;
 import ru.natlex.task.sections.service.SectionsService;
@@ -22,6 +23,11 @@ public class SectionsController {
     @PostMapping("/create")
     public SectionCreatedResponse createSection(@Valid @RequestBody SectionCreateRequest sectionCreateRequest) throws Exception {
         return sectionsRestService.createSection(sectionCreateRequest);
+    }
+
+    @PostMapping("/update")
+    public SectionCreatedResponse updateSection(@Valid @RequestBody SectionUpdateRequest sectionUpdateRequest) throws Exception {
+        return sectionsRestService.updateSection(sectionUpdateRequest);
     }
 
     @GetMapping("/all")
